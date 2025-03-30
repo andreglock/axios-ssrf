@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
   searchItem: string = '';
@@ -22,11 +22,13 @@ export class SearchComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private location: Location,
-    private router: Router
-  ) { 
-    if (location.path().split('#')[1]) { // Get current searched item
+    private router: Router,
+  ) {
+    if (location.path().split('#')[1]) {
+      // Get current searched item
       this.searchItem = location.path().split('#')[1];
-      if (location.path().split('#')[2]) { // Get current searched page
+      if (location.path().split('#')[2]) {
+        // Get current searched page
         this.current = parseInt(location.path().split('#')[2]);
       }
       this.getSearch();
@@ -34,7 +36,10 @@ export class SearchComponent implements OnInit {
   }
 
   getSearch() {
-    this.taskService.getMovies(`search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`)
+    this.taskService
+      .getMovies(
+        `search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`,
+      )
       .subscribe((response: any) => {
         this.total = response.total_pages;
         this.movieList = response.results;
@@ -43,12 +48,13 @@ export class SearchComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     // Add search term and page in the #route
-    this.router.navigate([], { fragment: `${this.searchItem}#${this.current}` });
+    this.router.navigate([], {
+      fragment: `${this.searchItem}#${this.current}`,
+    });
     this.getSearch();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public onGoTo(page: number): void {
     this.current = page;
@@ -56,8 +62,13 @@ export class SearchComponent implements OnInit {
 
   public onNext(page: number): void {
     this.current = page + 1;
-    this.router.navigate([], { fragment: `${this.searchItem}#${this.current}` });
-    this.taskService.getMovies(`search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`)
+    this.router.navigate([], {
+      fragment: `${this.searchItem}#${this.current}`,
+    });
+    this.taskService
+      .getMovies(
+        `search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`,
+      )
       .subscribe((response: any) => {
         this.movieList = response.results;
       });
@@ -65,11 +76,15 @@ export class SearchComponent implements OnInit {
 
   public onPrevious(page: number): void {
     this.current = page - 1;
-    this.router.navigate([], { fragment: `${this.searchItem}#${this.current}` });
-    this.taskService.getMovies(`search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`)
+    this.router.navigate([], {
+      fragment: `${this.searchItem}#${this.current}`,
+    });
+    this.taskService
+      .getMovies(
+        `search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`,
+      )
       .subscribe((response: any) => {
         this.movieList = response.results;
       });
   }
-
 }

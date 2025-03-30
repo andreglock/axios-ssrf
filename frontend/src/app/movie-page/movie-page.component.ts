@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
+import {
+  HashLocationStrategy,
+  Location,
+  LocationStrategy,
+} from '@angular/common';
 import { Movie } from '../movie-list/movie-list.component';
 import { TaskService } from '../task.service';
 
@@ -16,7 +20,7 @@ export class Person {
     public order: number,
     public original_name: string,
     public popularity: number,
-    public profile_path: string | null
+    public profile_path: string | null,
   ) {}
 }
 
@@ -24,14 +28,20 @@ export class Person {
   selector: 'app-movie-page',
   templateUrl: './movie-page.component.html',
   styleUrls: ['./movie-page.component.scss'],
-  providers: [Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    Location,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
 })
 export class MoviePageComponent implements OnInit {
   movieId: string;
   movie: Movie;
   cast: Person[];
   localStorage = JSON.parse(localStorage.getItem('watchList') || '[]');
-  constructor(location: Location, private taskService: TaskService) {
+  constructor(
+    location: Location,
+    private taskService: TaskService,
+  ) {
     this.movieId = location.path().split('#')[1];
   }
 
@@ -40,22 +50,29 @@ export class MoviePageComponent implements OnInit {
   }
 
   getMovieDetails() {
-    this.taskService.getMovies(`movie/${this.movieId}?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US`)
-      .subscribe((response: any) => this.movie = response);
-    this.taskService.getMovies(`movie/${this.movieId}/credits?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US`)
+    this.taskService
+      .getMovies(
+        `movie/${this.movieId}?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US`,
+      )
+      .subscribe((response: any) => (this.movie = response));
+    this.taskService
+      .getMovies(
+        `movie/${this.movieId}/credits?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US`,
+      )
       .subscribe((response: any) => {
         if (response.cast) {
           response.cast.sort((a: any, b: any) => {
             if (a.profile_path === null && b.profile_path !== 'null') {
               return 1;
-            } if (a.profile_path !== 'null' && b.profile_path === null) {
+            }
+            if (a.profile_path !== 'null' && b.profile_path === null) {
               return -1;
             } else {
               return 0;
             }
-          })
+          });
         }
-        this.cast = response.cast
+        this.cast = response.cast;
       });
   }
 
@@ -72,6 +89,4 @@ export class MoviePageComponent implements OnInit {
     this.localStorage.push(this.movie);
     localStorage.setItem('watchList', JSON.stringify(this.localStorage));
   }
-
 }
-

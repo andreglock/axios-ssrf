@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { WebRequestService } from './services/web-request.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
-
-  constructor(private webRequestService: WebRequestService) { }
+  constructor(private webRequestService: WebRequestService) {}
 
   getMovies(title: string) {
     return this.webRequestService.get(title);
+  }
+
+  getApiMovies(path: string) {
+    return this.webRequestService.getFromApi('movies/' + path);
   }
 }

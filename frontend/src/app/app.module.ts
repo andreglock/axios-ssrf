@@ -25,16 +25,16 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     WatchListComponent,
     PaginationComponent,
     PagePipe,
-    MovieCardComponent
+    MovieCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

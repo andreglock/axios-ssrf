@@ -1,11 +1,16 @@
-import { 
-  Component, Input, OnChanges, Output, SimpleChanges, EventEmitter 
+import {
+  Component,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  EventEmitter,
 } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+  styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnChanges {
   @Input() current: number;
@@ -29,7 +34,7 @@ export class PaginationComponent implements OnChanges {
 
   private getPages(current: number, total: number): number[] {
     if (total <= 7) {
-      return [...Array(7).keys()].map(x => ++x);
+      return [...Array(7).keys()].map((x) => ++x);
     } else if (current >= 5) {
       if (current > total - 4) {
         return [1, -1, total - 4, total - 3, total - 2, total - 1, total];
@@ -42,12 +47,11 @@ export class PaginationComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(
+    if (
       (changes['current'] && changes['current']['currentValue']) ||
       (changes['total'] && changes['total']['currentValue'])
     ) {
       this.pages = this.getPages(this.current, this.total);
     }
   }
-
 }

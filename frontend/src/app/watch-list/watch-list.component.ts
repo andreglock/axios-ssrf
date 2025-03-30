@@ -4,21 +4,18 @@ import { Movie } from '../movie-list/movie-list.component';
 @Component({
   selector: 'app-watch-list',
   templateUrl: './watch-list.component.html',
-  styleUrls: ['./watch-list.component.scss']
+  styleUrls: ['./watch-list.component.scss'],
 })
 export class WatchListComponent implements OnInit {
-
   movieList = JSON.parse(localStorage.getItem('watchList') || '[]');
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   removeFromWatchList(item: Movie) {
     const index = this.movieList.indexOf(item);
     this.movieList.splice(index, 1);
     localStorage.setItem('watchList', JSON.stringify(this.movieList));
   }
-
 }
