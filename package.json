@@ -1,0 +1,21 @@
+{
+  "name": "boileplate",
+  "version": "0.0.1",
+  "description": "Minimal Project with NestJs and Angular",
+  "author": "André",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"{backend,frontend}/**/*.ts\"",
+    "formatCheck": "prettier --check \"{backend,frontend}/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.23.0",
+    "eslint": "9.18.0",
+    "globals": "16.0.0",
+    "prettier": "3.4.2",
+    "typescript-eslint": "8.20.0"
+  },
+  "packageManager": "pnpm@10.7.0"
+}
