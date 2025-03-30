@@ -3,12 +3,14 @@ import { AppController } from './app.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { AppService } from './app.service';
 import { join } from 'path';
+import { MoviesModule } from './movies/movies.module';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../..', 'frontend/dist/angular/'),
     }),
+    MoviesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,0 +1,15 @@
+GET http://localhost:3000/api/movies/1
+
+###
+
+DELETE http://localhost:5000/posts/5610612881721
+
+###
+
+POST http://localhost:5000/posts
+Content-Type: application/json
+
+{
+    "name": "Marty the Rainbow",
+    "score": 999
+}
