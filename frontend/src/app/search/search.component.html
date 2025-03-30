@@ -2,7 +2,7 @@
   <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
     <input required type="text" [(ngModel)]="searchItem" name="searchItem" placeholder='Search' />
     <button type="submit" [disabled]="!searchForm.form.valid">
-      <fa-icon [icon]="faSearch"></fa-icon>
+      <p>Search</p>
     </button>
   </form>
 </div>
