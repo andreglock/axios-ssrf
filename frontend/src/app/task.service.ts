@@ -14,4 +14,8 @@ export class TaskService {
   getApiMovies(path: string) {
     return this.webRequestService.getFromApi('movies/' + path);
   }
+
+  getApiMoviesBySearchWord(searchWord: string) {
+    return this.webRequestService.postToApi('search/', {searchWord});
+  }
 }

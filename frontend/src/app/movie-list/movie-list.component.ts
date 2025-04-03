@@ -64,7 +64,6 @@ export class MovieListComponent implements OnInit {
   }
 
   createNewList() {
-    console.log('calling getApiMovies with', this.currentPage);
     this.taskService
       .getApiMovies(`${this.currentPage}`)
       .subscribe((response: any) => {
@@ -88,9 +87,7 @@ export class MovieListComponent implements OnInit {
     this.currentPage = page + 1;
     this.router.navigate([], { fragment: `${this.currentPage}` });
     this.taskService
-      .getMovies(
-        `trending/movie/week?api_key=8c20094b9d32bd14049b323d7d8294d0&page=${this.currentPage}`,
-      )
+      .getApiMovies(`${this.currentPage}`)
       .subscribe((response: any) => {
         this.movieList = response.results;
       });
@@ -100,9 +97,7 @@ export class MovieListComponent implements OnInit {
     this.currentPage = page - 1;
     this.router.navigate([], { fragment: `${this.currentPage}` });
     this.taskService
-      .getMovies(
-        `trending/movie/week?api_key=8c20094b9d32bd14049b323d7d8294d0&page=${this.currentPage}`,
-      )
+      .getApiMovies(`${this.currentPage}`)
       .subscribe((response: any) => {
         this.movieList = response.results;
       });

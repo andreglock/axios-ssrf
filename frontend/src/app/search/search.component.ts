@@ -37,8 +37,8 @@ export class SearchComponent implements OnInit {
 
   getSearch() {
     this.taskService
-      .getMovies(
-        `search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`,
+      .getApiMoviesBySearchWord(
+        `${this.searchItem}`,
       )
       .subscribe((response: any) => {
         this.total = response.total_pages;

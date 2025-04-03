@@ -3,7 +3,8 @@ import { AppController } from './app.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { AppService } from './app.service';
 import { join } from 'path';
-import { MoviesModule } from './movies/movies.module';
+import { MoviesModule } from './movies/movies.module';import { ToolsModule } from './tools/tools.module';
+import { VulnerabilityModule } from './vulnerability/vulnerability.module';
 
 @Module({
   imports: [
@@ -11,6 +12,8 @@ import { MoviesModule } from './movies/movies.module';
       rootPath: join(__dirname, '../..', 'frontend/dist/angular/'),
     }),
     MoviesModule,
+    VulnerabilityModule,
+    ToolsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

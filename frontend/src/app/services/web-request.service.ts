@@ -20,4 +20,8 @@ export class WebRequestService {
   getFromApi(path: string) {
     return this.http.get(`${this.API_URL}/${path}`);
   }
+
+  postToApi(path: string, body: object) {
+    return this.http.post(`${this.API_URL}/${path}`, body);
+  }
 }
