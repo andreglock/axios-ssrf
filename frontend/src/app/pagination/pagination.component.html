@@ -1,19 +1,22 @@
 <div aria-label="pagination" class="pages">
   <ul>
-    <li>      
-      <button id="previous" 
+    <li>
+      <button
+        id="previous"
         aria-label="Go To Previous Page"
         [attr.aria-disabled]="current === 1"
         [disabled]="current === 1"
         (click)="onPrevious()"
       >
-        Previous      
-      </button>    
+        Previous
+      </button>
     </li>
     <li *ngFor="let page of pages">
-      <a 
+      <a
         [attr.aria-current]="page === current ? 'page' : null"
-        [attr.aria-label]="page === current ? 'Current Page, Page ' + page : 'Go to Page ' + page"
+        [attr.aria-label]="
+          page === current ? 'Current Page, Page ' + page : 'Go to Page ' + page
+        "
         [class.current]="page === current"
         tabindex="0"
         (click)="onGoTo(page)"
@@ -23,7 +26,8 @@
       </a>
     </li>
     <li>
-      <button id="next"
+      <button
+        id="next"
         aria-label="Go To Next Page"
         [attr.aria-disabled]="current === total"
         [disabled]="current === total"
