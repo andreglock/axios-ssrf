@@ -7,10 +7,6 @@ import { WebRequestService } from './services/web-request.service';
 export class TaskService {
   constructor(private webRequestService: WebRequestService) {}
 
-  getMovies(title: string) {
-    return this.webRequestService.get(title);
-  }
-
   getApiMovieDetails(id: string) {
     return this.webRequestService.getFromApi('movies/movie/' + id);
   }

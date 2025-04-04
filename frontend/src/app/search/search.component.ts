@@ -62,9 +62,7 @@ export class SearchComponent implements OnInit {
       fragment: `${this.searchItem}#${this.current}`,
     });
     this.taskService
-      .getMovies(
-        `search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`,
-      )
+      .getApiMoviesBySearchWordAndPage(this.searchItem, this.current)
       .subscribe((response: any) => {
         this.movieList = response.results;
       });
@@ -76,9 +74,7 @@ export class SearchComponent implements OnInit {
       fragment: `${this.searchItem}#${this.current}`,
     });
     this.taskService
-      .getMovies(
-        `search/movie?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US&&include_adult=false&query=${this.searchItem}&page=${this.current}`,
-      )
+      .getApiMoviesBySearchWordAndPage(this.searchItem, this.current)
       .subscribe((response: any) => {
         this.movieList = response.results;
       });

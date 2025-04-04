@@ -51,14 +51,10 @@ export class MoviePageComponent implements OnInit {
 
   getMovieDetails() {
     this.taskService
-      .getMovies(
-        `movie/${this.movieId}?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US`,
-      )
+      .getApiMovieDetails(this.movieId)
       .subscribe((response: any) => (this.movie = response));
     this.taskService
-      .getMovies(
-        `movie/${this.movieId}/credits?api_key=8c20094b9d32bd14049b323d7d8294d0&language=en-US`,
-      )
+      .getApiMovieCast(this.movieId)
       .subscribe((response: any) => {
         if (response.cast) {
           response.cast.sort((a: any, b: any) => {
