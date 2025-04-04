@@ -1,17 +1,25 @@
 import { Inject, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { LoggingTool } from '../tools/logging/logging.tool';
-import * as process from 'node:process';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class MoviesService {
-  constructor(@Inject(LoggingTool) private readonly loggingTool: LoggingTool) {
+  private apiKeyParameter: string;
+  private TRENDING_URL: string;
+
+  constructor(
+    private configService: ConfigService,
+    @Inject(LoggingTool) private readonly loggingTool: LoggingTool,
+  ) {
     this.loggingTool.setContext(MoviesService.name);
+    this.apiKeyParameter =
+      'api_key=' + this.configService.get<string>('TMDB_API_KEY');
+    this.TRENDING_URL = `trending/movie/week?${this.apiKeyParameter}`;
   }
 
-  private key = process.env.TMDB_API_KEY;
   private ROOT_URL = 'https://api.themoviedb.org/3';
-  private TRENDING_URL = `trending/movie/week?api_key=${this.key}&page=`;
+  private MOVIE_URL = `movie/`;
 
   private internalAPIClient = axios.create({
     baseURL: this.ROOT_URL,
@@ -26,7 +34,24 @@ export class MoviesService {
   async getTrendingMoviesByPage(page: string) {
     this.loggingTool.log(`Getting movies by page: ${page}`);
 
-    return (await this.internalAPIClient.get(`${this.TRENDING_URL}${page}`))
-      .data;
+    return (
+      await this.internalAPIClient.get(`${this.TRENDING_URL}&page=${page}`)
+    ).data;
+  }
+
+  async getMovieDetailsById(id: string) {
+    return (
+      await this.internalAPIClient.get(
+        `${this.MOVIE_URL}${id}?language=en-US&${this.apiKeyParameter}`,
+      )
+    ).data;
+  }
+
+  async getMovieCastById(id: string) {
+    return (
+      await this.internalAPIClient.get(
+        `${this.MOVIE_URL}${id}/credits?language=en-US&${this.apiKeyParameter}`,
+      )
+    ).data;
   }
 }

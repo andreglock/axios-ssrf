@@ -11,11 +11,26 @@ export class TaskService {
     return this.webRequestService.get(title);
   }
 
+  getApiMovieDetails(id: string) {
+    return this.webRequestService.getFromApi('movies/movie/' + id);
+  }
+
+  getApiMovieCast(id: string) {
+    return this.webRequestService.getFromApi('movies/cast/' + id);
+  }
+
   getApiMovies(path: string) {
     return this.webRequestService.getFromApi('movies/' + path);
   }
 
   getApiMoviesBySearchWord(searchWord: string) {
     return this.webRequestService.postToApi('search/', { searchWord });
+  }
+
+  getApiMoviesBySearchWordAndPage(searchWord: string, pageNumber: number) {
+    return this.webRequestService.postToApi('search/', {
+      searchWord,
+      pageNumber,
+    });
   }
 }
