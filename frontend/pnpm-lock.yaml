@@ -32,15 +32,6 @@ importers:
       '@angular/router':
         specifier: ~13.1.0
         version: 13.1.3(@angular/common@13.1.3(@angular/core@13.1.3(rxjs@7.4.0)(zone.js@0.11.8))(rxjs@7.4.0))(@angular/core@13.1.3(rxjs@7.4.0)(zone.js@0.11.8))(@angular/platform-browser@13.1.3(@angular/animations@13.1.3(@angular/core@13.1.3(rxjs@7.4.0)(zone.js@0.11.8)))(@angular/common@13.1.3(@angular/core@13.1.3(rxjs@7.4.0)(zone.js@0.11.8))(rxjs@7.4.0))(@angular/core@13.1.3(rxjs@7.4.0)(zone.js@0.11.8)))(rxjs@7.4.0)
-      '@fortawesome/angular-fontawesome':
-        specifier: ^0.10.1
-        version: 0.10.2(@fortawesome/fontawesome-svg-core@1.3.0)
-      '@fortawesome/fontawesome-svg-core':
-        specifier: ^1.2.36
-        version: 1.3.0
-      '@fortawesome/free-solid-svg-icons':
-        specifier: ^5.15.4
-        version: 5.15.4
       bootstrap:
         specifier: ^5.1.3
         version: 5.3.3(@popperjs/core@2.11.8)
@@ -792,29 +783,6 @@ packages:
   '@discoveryjs/json-ext@0.5.6':
     resolution: {integrity: sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==}
     engines: {node: '>=10.0.0'}
-
-  '@fortawesome/angular-fontawesome@0.10.2':
-    resolution: {integrity: sha512-VxsCAo2lK74KwD236AKAhGpiethfz9yqCViIG2iRAZqgNmuZ6ihwumjbLW32n6hV4fFvCqLcHmpngoEl3TNiOg==}
-    peerDependencies:
-      '@fortawesome/fontawesome-svg-core': ~1.2.27 || ~1.3.0-beta2 || ^6.1.0
-
-  '@fortawesome/fontawesome-common-types@0.2.36':
-    resolution: {integrity: sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg==}
-    engines: {node: '>=6'}
-
-  '@fortawesome/fontawesome-common-types@0.3.0':
-    resolution: {integrity: sha512-CA3MAZBTxVsF6SkfkHXDerkhcQs0QPofy43eFdbWJJkZiq3SfiaH1msOkac59rQaqto5EqWnASboY1dBuKen5w==}
-    engines: {node: '>=6'}
-    deprecated: Please upgrade to 6.1.0. https://fontawesome.com/docs/changelog/
-
-  '@fortawesome/fontawesome-svg-core@1.3.0':
-    resolution: {integrity: sha512-UIL6crBWhjTNQcONt96ExjUnKt1D68foe3xjEensLDclqQ6YagwCRYVQdrp/hW0ALRp/5Fv/VKw+MqTUWYYvPg==}
-    engines: {node: '>=6'}
-    deprecated: Please upgrade to 6.1.0. https://fontawesome.com/docs/changelog/
-
-  '@fortawesome/free-solid-svg-icons@5.15.4':
-    resolution: {integrity: sha512-JLmQfz6tdtwxoihXLg6lT78BorrFyCf59SAwBM6qV/0zXyVeDygJVb3fk+j5Qat+Yvcxp1buLTY5iDh1ZSAQ8w==}
-    engines: {node: '>=6'}
 
   '@gar/promisify@1.1.3':
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
@@ -3963,7 +3931,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 1.0.2
       '@angular-devkit/architect': 0.1301.4(chokidar@3.6.0)
-      '@angular-devkit/build-webpack': 0.1301.4(chokidar@3.6.0)(webpack-dev-server@4.6.0(webpack@5.65.0))(webpack@5.65.0(esbuild@0.14.11))
+      '@angular-devkit/build-webpack': 0.1301.4(chokidar@3.6.0)(webpack-dev-server@4.6.0(webpack@5.65.0))(webpack@5.65.0)
       '@angular-devkit/core': 13.1.4(chokidar@3.6.0)
       '@angular/compiler-cli': 13.1.3(@angular/compiler@13.1.3)(typescript@4.5.5)
       '@babel/core': 7.16.0
@@ -3976,17 +3944,17 @@ snapshots:
       '@babel/runtime': 7.16.3
       '@babel/template': 7.16.0
       '@discoveryjs/json-ext': 0.5.6
-      '@ngtools/webpack': 13.1.4(@angular/compiler-cli@13.1.3(@angular/compiler@13.1.3)(typescript@4.5.5))(typescript@4.5.5)(webpack@5.65.0(esbuild@0.14.11))
+      '@ngtools/webpack': 13.1.4(@angular/compiler-cli@13.1.3(@angular/compiler@13.1.3)(typescript@4.5.5))(typescript@4.5.5)(webpack@5.65.0)
       ansi-colors: 4.1.1
-      babel-loader: 8.2.3(@babel/core@7.16.0)(webpack@5.65.0(esbuild@0.14.11))
+      babel-loader: 8.2.3(@babel/core@7.16.0)(webpack@5.65.0)
       babel-plugin-istanbul: 6.1.1
       browserslist: 4.24.4
       cacache: 15.3.0
-      circular-dependency-plugin: 5.2.2(webpack@5.65.0(esbuild@0.14.11))
-      copy-webpack-plugin: 10.0.0(webpack@5.65.0(esbuild@0.14.11))
+      circular-dependency-plugin: 5.2.2(webpack@5.65.0)
+      copy-webpack-plugin: 10.0.0(webpack@5.65.0)
       core-js: 3.19.3
       critters: 0.0.16
-      css-loader: 6.5.1(webpack@5.65.0(esbuild@0.14.11))
+      css-loader: 6.5.1(webpack@5.65.0)
       esbuild-wasm: 0.14.11
       glob: 7.2.0
       https-proxy-agent: 5.0.0
@@ -3994,10 +3962,10 @@ snapshots:
       jsonc-parser: 3.0.0
       karma-source-map-support: 1.4.0
       less: 4.1.2
-      less-loader: 10.2.0(less@4.1.2)(webpack@5.65.0(esbuild@0.14.11))
-      license-webpack-plugin: 4.0.0(webpack@5.65.0(esbuild@0.14.11))
+      less-loader: 10.2.0(less@4.1.2)(webpack@5.65.0)
+      license-webpack-plugin: 4.0.0(webpack@5.65.0)
       loader-utils: 3.2.0
-      mini-css-extract-plugin: 2.4.5(webpack@5.65.0(esbuild@0.14.11))
+      mini-css-extract-plugin: 2.4.5(webpack@5.65.0)
       minimatch: 3.0.4
       open: 8.4.0
       ora: 5.4.1
@@ -4005,18 +3973,18 @@ snapshots:
       piscina: 3.1.0
       postcss: 8.4.4
       postcss-import: 14.0.2(postcss@8.4.4)
-      postcss-loader: 6.2.1(postcss@8.4.4)(webpack@5.65.0(esbuild@0.14.11))
+      postcss-loader: 6.2.1(postcss@8.4.4)(webpack@5.65.0)
       postcss-preset-env: 7.2.3(postcss@8.4.4)
       regenerator-runtime: 0.13.9
       resolve-url-loader: 4.0.0
       rxjs: 6.6.7
       sass: 1.44.0
-      sass-loader: 12.4.0(sass@1.44.0)(webpack@5.65.0(esbuild@0.14.11))
+      sass-loader: 12.4.0(sass@1.44.0)(webpack@5.65.0)
       semver: 7.3.5
-      source-map-loader: 3.0.0(webpack@5.65.0(esbuild@0.14.11))
+      source-map-loader: 3.0.0(webpack@5.65.0)
       source-map-support: 0.5.21
       stylus: 0.55.0
-      stylus-loader: 6.2.0(stylus@0.55.0)(webpack@5.65.0(esbuild@0.14.11))
+      stylus-loader: 6.2.0(stylus@0.55.0)(webpack@5.65.0)
       terser: 5.10.0(acorn@8.14.1)
       text-table: 0.2.0
       tree-kill: 1.2.2
@@ -4026,7 +3994,7 @@ snapshots:
       webpack-dev-middleware: 5.2.2(webpack@5.65.0)
       webpack-dev-server: 4.6.0(webpack@5.65.0)
       webpack-merge: 5.8.0
-      webpack-subresource-integrity: 5.0.0(webpack@5.65.0(esbuild@0.14.11))
+      webpack-subresource-integrity: 5.0.0(webpack@5.65.0)
     optionalDependencies:
       esbuild: 0.14.11
       karma: 6.3.20
@@ -4048,7 +4016,7 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@angular-devkit/build-webpack@0.1301.4(chokidar@3.6.0)(webpack-dev-server@4.6.0(webpack@5.65.0))(webpack@5.65.0(esbuild@0.14.11))':
+  '@angular-devkit/build-webpack@0.1301.4(chokidar@3.6.0)(webpack-dev-server@4.6.0(webpack@5.65.0))(webpack@5.65.0)':
     dependencies:
       '@angular-devkit/architect': 0.1301.4(chokidar@3.6.0)
       rxjs: 6.6.7
@@ -4925,23 +4893,6 @@ snapshots:
 
   '@discoveryjs/json-ext@0.5.6': {}
 
-  '@fortawesome/angular-fontawesome@0.10.2(@fortawesome/fontawesome-svg-core@1.3.0)':
-    dependencies:
-      '@fortawesome/fontawesome-svg-core': 1.3.0
-      tslib: 2.8.1
-
-  '@fortawesome/fontawesome-common-types@0.2.36': {}
-
-  '@fortawesome/fontawesome-common-types@0.3.0': {}
-
-  '@fortawesome/fontawesome-svg-core@1.3.0':
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.3.0
-
-  '@fortawesome/free-solid-svg-icons@5.15.4':
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.2.36
-
   '@gar/promisify@1.1.3': {}
 
   '@istanbuljs/load-nyc-config@1.1.0':
@@ -4978,7 +4929,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@ngtools/webpack@13.1.4(@angular/compiler-cli@13.1.3(@angular/compiler@13.1.3)(typescript@4.5.5))(typescript@4.5.5)(webpack@5.65.0(esbuild@0.14.11))':
+  '@ngtools/webpack@13.1.4(@angular/compiler-cli@13.1.3(@angular/compiler@13.1.3)(typescript@4.5.5))(typescript@4.5.5)(webpack@5.65.0)':
     dependencies:
       '@angular/compiler-cli': 13.1.3(@angular/compiler@13.1.3)(typescript@4.5.5)
       typescript: 4.5.5
@@ -5314,7 +5265,7 @@ snapshots:
       postcss: 8.4.4
       postcss-value-parser: 4.2.0
 
-  babel-loader@8.2.3(@babel/core@7.16.0)(webpack@5.65.0(esbuild@0.14.11)):
+  babel-loader@8.2.3(@babel/core@7.16.0)(webpack@5.65.0):
     dependencies:
       '@babel/core': 7.16.0
       find-cache-dir: 3.3.2
@@ -5507,7 +5458,7 @@ snapshots:
 
   chrome-trace-event@1.0.4: {}
 
-  circular-dependency-plugin@5.2.2(webpack@5.65.0(esbuild@0.14.11)):
+  circular-dependency-plugin@5.2.2(webpack@5.65.0):
     dependencies:
       webpack: 5.65.0(esbuild@0.14.11)
 
@@ -5608,7 +5559,7 @@ snapshots:
     dependencies:
       is-what: 3.14.1
 
-  copy-webpack-plugin@10.0.0(webpack@5.65.0(esbuild@0.14.11)):
+  copy-webpack-plugin@10.0.0(webpack@5.65.0):
     dependencies:
       fast-glob: 3.3.3
       glob-parent: 6.0.2
@@ -5664,7 +5615,7 @@ snapshots:
       postcss: 8.4.4
       postcss-selector-parser: 6.1.2
 
-  css-loader@6.5.1(webpack@5.65.0(esbuild@0.14.11)):
+  css-loader@6.5.1(webpack@5.65.0):
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.4)
       postcss: 8.4.4
@@ -6703,7 +6654,7 @@ snapshots:
 
   klona@2.0.6: {}
 
-  less-loader@10.2.0(less@4.1.2)(webpack@5.65.0(esbuild@0.14.11)):
+  less-loader@10.2.0(less@4.1.2)(webpack@5.65.0):
     dependencies:
       klona: 2.0.6
       less: 4.1.2
@@ -6725,7 +6676,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  license-webpack-plugin@4.0.0(webpack@5.65.0(esbuild@0.14.11)):
+  license-webpack-plugin@4.0.0(webpack@5.65.0):
     dependencies:
       webpack-sources: 3.2.3
     optionalDependencies:
@@ -6859,7 +6810,7 @@ snapshots:
 
   mimic-fn@2.1.0: {}
 
-  mini-css-extract-plugin@2.4.5(webpack@5.65.0(esbuild@0.14.11)):
+  mini-css-extract-plugin@2.4.5(webpack@5.65.0):
     dependencies:
       schema-utils: 4.3.0
       webpack: 5.65.0(esbuild@0.14.11)
@@ -7317,7 +7268,7 @@ snapshots:
       postcss: 8.4.4
       postcss-value-parser: 4.2.0
 
-  postcss-loader@6.2.1(postcss@8.4.4)(webpack@5.65.0(esbuild@0.14.11)):
+  postcss-loader@6.2.1(postcss@8.4.4)(webpack@5.65.0):
     dependencies:
       cosmiconfig: 7.1.0
       klona: 2.0.6
@@ -7637,7 +7588,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@12.4.0(sass@1.44.0)(webpack@5.65.0(esbuild@0.14.11)):
+  sass-loader@12.4.0(sass@1.44.0)(webpack@5.65.0):
     dependencies:
       klona: 2.0.6
       neo-async: 2.6.2
@@ -7855,7 +7806,7 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
-  source-map-loader@3.0.0(webpack@5.65.0(esbuild@0.14.11)):
+  source-map-loader@3.0.0(webpack@5.65.0):
     dependencies:
       abab: 2.0.6
       iconv-lite: 0.6.3
@@ -7951,7 +7902,7 @@ snapshots:
     dependencies:
       escape-string-regexp: 1.0.5
 
-  stylus-loader@6.2.0(stylus@0.55.0)(webpack@5.65.0(esbuild@0.14.11)):
+  stylus-loader@6.2.0(stylus@0.55.0)(webpack@5.65.0):
     dependencies:
       fast-glob: 3.3.3
       klona: 2.0.6
@@ -8190,7 +8141,7 @@ snapshots:
 
   webpack-sources@3.2.3: {}
 
-  webpack-subresource-integrity@5.0.0(webpack@5.65.0(esbuild@0.14.11)):
+  webpack-subresource-integrity@5.0.0(webpack@5.65.0):
     dependencies:
       typed-assert: 1.0.9
       webpack: 5.65.0(esbuild@0.14.11)

@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SearchComponent } from './search/search.component';
 import { GenreNamePipe } from './genre-name.pipe';
@@ -31,7 +30,6 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule,
     FormsModule,
   ],
   providers: [],

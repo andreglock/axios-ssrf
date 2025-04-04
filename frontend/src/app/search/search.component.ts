@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NgForm } from '@angular/forms';
 
 import { Movie } from '../movie-list/movie-list.component';
@@ -14,7 +13,6 @@ import { Location } from '@angular/common';
 })
 export class SearchComponent implements OnInit {
   searchItem: string = '';
-  faSearch = faSearch;
   movieList: Movie[];
   public current: number = 1;
   public total: number;
@@ -24,12 +22,12 @@ export class SearchComponent implements OnInit {
     private location: Location,
     private router: Router,
   ) {
-    if (location.path().split('#')[1]) {
+    if (this.location.path().split('#')[1]) {
       // Get current searched item
-      this.searchItem = location.path().split('#')[1];
+      this.searchItem = this.location.path().split('#')[1];
       if (location.path().split('#')[2]) {
         // Get current searched page
-        this.current = parseInt(location.path().split('#')[2]);
+        this.current = parseInt(this.location.path().split('#')[2]);
       }
       this.getSearch();
     }
