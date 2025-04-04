@@ -11,8 +11,7 @@ export class MoviesService {
 
   private key = process.env.TMDB_API_KEY;
   private ROOT_URL = 'https://api.themoviedb.org/3';
-  private TRENDING_URL =
-    `trending/movie/week?api_key=${this.key}&page=`;
+  private TRENDING_URL = `trending/movie/week?api_key=${this.key}&page=`;
 
   private internalAPIClient = axios.create({
     baseURL: this.ROOT_URL,
@@ -21,18 +20,13 @@ export class MoviesService {
   async getMovies(): Promise<string> {
     this.loggingTool.log(`Getting movies without page`);
 
-    return (await this.internalAPIClient.get(
-      `${this.TRENDING_URL}`,
-    )).data;
+    return (await this.internalAPIClient.get(`${this.TRENDING_URL}`)).data;
   }
 
   async getTrendingMoviesByPage(page: string) {
     this.loggingTool.log(`Getting movies by page: ${page}`);
 
-    return (
-      await this.internalAPIClient.get(
-        `${this.TRENDING_URL}${page}`,
-      )
-    ).data;
+    return (await this.internalAPIClient.get(`${this.TRENDING_URL}${page}`))
+      .data;
   }
 }

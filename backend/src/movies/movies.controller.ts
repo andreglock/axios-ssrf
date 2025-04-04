@@ -4,7 +4,10 @@ import { LoggingTool } from '../tools/logging/logging.tool';
 
 @Controller('movies')
 export class MoviesController {
-  constructor(private readonly moviesService: MoviesService, @Inject(LoggingTool) private readonly loggingTool: LoggingTool) {
+  constructor(
+    private readonly moviesService: MoviesService,
+    @Inject(LoggingTool) private readonly loggingTool: LoggingTool,
+  ) {
     this.loggingTool.setContext(MoviesController.name);
   }
   @Get()

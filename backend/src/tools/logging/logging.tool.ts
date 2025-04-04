@@ -27,5 +27,4 @@ export class LoggingTool implements LoggerService {
   public verbose(message: string, extras?: Record<string, unknown>) {
     this.logger.verbose(message, ...(extras ? [extras] : []));
   }
-
 }

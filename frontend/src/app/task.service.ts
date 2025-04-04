@@ -16,6 +16,6 @@ export class TaskService {
   }
 
   getApiMoviesBySearchWord(searchWord: string) {
-    return this.webRequestService.postToApi('search/', {searchWord});
+    return this.webRequestService.postToApi('search/', { searchWord });
   }
 }

@@ -26,12 +26,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     PagePipe,
     MovieCardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

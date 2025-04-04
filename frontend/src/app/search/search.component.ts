@@ -35,9 +35,7 @@ export class SearchComponent implements OnInit {
 
   getSearch() {
     this.taskService
-      .getApiMoviesBySearchWord(
-        `${this.searchItem}`,
-      )
+      .getApiMoviesBySearchWord(`${this.searchItem}`)
       .subscribe((response: any) => {
         this.total = response.total_pages;
         this.movieList = response.results;
