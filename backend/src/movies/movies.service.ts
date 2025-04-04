@@ -1,6 +1,7 @@
-import { Inject, Injectable, Logger, UsePipes } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { LoggingTool } from '../tools/logging/logging.tool';
+import * as process from 'node:process';
 
 @Injectable()
 export class MoviesService {
@@ -8,9 +9,10 @@ export class MoviesService {
     this.loggingTool.setContext(MoviesService.name);
   }
 
+  private key = process.env.TMDB_API_KEY;
   private ROOT_URL = 'https://api.themoviedb.org/3';
   private TRENDING_URL =
-    'trending/movie/week?api_key=8c20094b9d32bd14049b323d7d8294d0&search=';
+    `trending/movie/week?api_key=${this.key}&page=`;
 
   private internalAPIClient = axios.create({
     baseURL: this.ROOT_URL,
