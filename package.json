@@ -10,7 +10,7 @@
     "formatCheck": "prettier --check \"{backend,frontend}/**/*.{js,ts,html,scss}\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "deploy:dev": "cd ./frontend && pnpm i && pnpm build:dev && cd ../backend && pnpm i && start:prod",
-    "build": "cd ./frontend && pnpm build && cd ../backend && pnpm i && pnpm build",
+    "build": "cd ./frontend && pnpm i && pnpm build && cd ../backend && pnpm i && pnpm build",
     "start": "cd ../backend && pnpm start:prod"
   },
   "devDependencies": {
