@@ -3,7 +3,8 @@
   "version": "0.2.0",
   "scripts": {
     "start": "ng serve",
-    "build": "ng build --base-href https://andreglock.github.io/movie-app/",
+    "build": "ng build --base-href https://axios-ssrf.onrender.com",
+    "build:dev": "ng build --base-href http://localhost:3000",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

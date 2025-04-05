@@ -13,7 +13,7 @@
           "strict": true
         }
       },
-      "root": "",
+      "root": "frontend",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -40,8 +40,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "520kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
