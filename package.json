@@ -1,7 +1,7 @@
 {
-  "name": "boileplate",
+  "name": "axios-ssrf",
   "version": "0.0.1",
-  "description": "Minimal Project with NestJs and Angular",
+  "description": "Demonstration of CVE-2025-27152",
   "author": "André",
   "private": false,
   "license": "MIT",
@@ -11,7 +11,7 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "deploy:dev": "cd ./frontend && pnpm i && pnpm build:dev && cd ../backend && pnpm i && start:prod",
     "build": "cd ./frontend && pnpm i && pnpm build && cd ../backend && pnpm i && pnpm build",
-    "start": "cd ../backend && pnpm start:prod"
+    "start": "cd ./backend && pnpm start:prod"
   },
   "devDependencies": {
     "@eslint/js": "9.23.0",
