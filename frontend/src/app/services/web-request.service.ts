@@ -8,7 +8,7 @@ export class WebRequestService {
   private readonly API_URL;
 
   constructor(private http: HttpClient) {
-    this.API_URL = 'http://localhost:3000/api';
+    this.API_URL = 'https://axios-ssrf.onrender.com/api';
   }
 
   getFromApi(path: string) {
