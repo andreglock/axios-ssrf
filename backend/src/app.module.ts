@@ -5,7 +5,7 @@ import { AppService } from './app.service';
 import { join } from 'path';
 import { MoviesModule } from './movies/movies.module';
 import { ToolsModule } from './tools/tools.module';
-import { VulnerabilityModule } from './vulnerability/vulnerability.module';
+import { SsrfModule } from './ssrf/ssrf.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -17,7 +17,7 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     MoviesModule,
-    VulnerabilityModule,
+    SsrfModule,
     ToolsModule,
   ],
   controllers: [AppController],

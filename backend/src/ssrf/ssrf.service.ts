@@ -5,7 +5,7 @@ import { GetMoviesBySearchDto } from './get-movies-by-search.dto';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
-export class VulnerableService {
+export class SsrfService {
   private ROOT_URL: string;
   private internalAPIClient: AxiosInstance;
 
@@ -13,7 +13,7 @@ export class VulnerableService {
     private configService: ConfigService,
     @Inject(LoggingTool) private readonly loggingTool: LoggingTool,
   ) {
-    this.loggingTool.setContext(VulnerableService.name);
+    this.loggingTool.setContext(SsrfService.name);
     const api_key = this.configService.get<string>('TMDB_API_KEY');
     this.ROOT_URL = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=en-US&&include_adult=false&query=`;
     this.internalAPIClient = axios.create({

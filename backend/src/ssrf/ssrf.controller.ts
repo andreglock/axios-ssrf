@@ -1,20 +1,20 @@
 import { Controller, Post, Inject, Body } from '@nestjs/common';
-import { VulnerableService } from './vulnerable.service';
+import { SsrfService } from './ssrf.service';
 import { LoggingTool } from '../tools/logging/logging.tool';
 import { GetMoviesBySearchDto } from './get-movies-by-search.dto';
 
 @Controller('search')
-export class VulnerableController {
+export class SsrfController {
   constructor(
-    private readonly vulnerableService: VulnerableService,
+    private readonly ssrfService: SsrfService,
     @Inject(LoggingTool) private readonly loggingTool: LoggingTool,
   ) {
-    this.loggingTool.setContext(VulnerableController.name);
+    this.loggingTool.setContext(SsrfController.name);
   }
 
   @Post()
   getMoviesBySearch(@Body() body: GetMoviesBySearchDto) {
     this.loggingTool.debug(`Called search`);
-    return this.vulnerableService.getMoviesBySearch(body);
+    return this.ssrfService.getMoviesBySearch(body);
   }
 }
