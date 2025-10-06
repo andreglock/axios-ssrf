@@ -8,7 +8,6 @@ import {
 import { Request, Response } from 'express';
 import * as path from 'path';
 import { LoggingTool } from '../tools/logging/logging.tool';
-import * as console from 'node:console';
 
 @Injectable()
 export class DownloadsAccessMiddleware implements NestMiddleware {
@@ -16,7 +15,7 @@ export class DownloadsAccessMiddleware implements NestMiddleware {
     this.loggingTool.setContext(DownloadsAccessMiddleware.name);
   }
 
-  async use(req: Request, res: Response) {
+  use(req: Request, res: Response) {
     if (!req.baseUrl || !req.params.param?.length) {
       this.throwInvalidException(
         `Intercepting download: could not read download file parameters`,
@@ -30,11 +29,9 @@ export class DownloadsAccessMiddleware implements NestMiddleware {
     let fileName: string;
 
     if (params.length > 1) {
-      console.log('Multiple params detected:', params);
       folderName = params[0];
       fileName = params[1];
     } else {
-      console.log('Single param detected:', params);
       fileName = params[0];
     }
 
@@ -49,7 +46,6 @@ export class DownloadsAccessMiddleware implements NestMiddleware {
         `Intercepting download request for a Nicolas Cage image`,
       );
       const filePath = './src/downloads/assets/' + path;
-      console.log('Nick filePath:', filePath);
       const authorized = true;
       if (!authorized) {
         this.throwInvalidException(
@@ -69,7 +65,6 @@ export class DownloadsAccessMiddleware implements NestMiddleware {
       }
       this.loggingTool.debug(`Linda download ${filePath} granted`);
       // provide download
-      console.log('Linda filePath:', filePath);
       return res.download(filePath);
     }
 
@@ -90,7 +85,6 @@ export class DownloadsAccessMiddleware implements NestMiddleware {
   }
 
   private static isNickDownload(url: string): boolean {
-    console.log('Checking if Nick download for url:', url);
     return url
       .replace(/[^a-zA-Z]/g, '')
       .startsWith(
