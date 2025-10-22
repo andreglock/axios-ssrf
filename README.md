@@ -9,4 +9,5 @@ I specifically used a version of axios that is vulnerable to SSRF attacks.
 
 ### Path Traversal:
 The downloads middleware is vulnerable to path traversal attacks. Because this is not a conventional controller this can't be detected by the SAST tools (semgrep and checkmarx).
+- https://axios-ssrf.onrender.com/api/downloads/linda/..%2f..%2f..%2fmain.ts
 - https://axios-ssrf.onrender.com/api/downloads/linda/..%2f..%2f..%2fdist%2fmain.ts
