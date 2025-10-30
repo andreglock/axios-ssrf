@@ -9,6 +9,7 @@ import { SsrfModule } from './ssrf/ssrf.module';
 import { ConfigModule } from '@nestjs/config';
 import { MiddlewareConsumer } from '@nestjs/common/interfaces/middleware/middleware-consumer.interface';
 import { DownloadsAccessMiddleware } from './downloads/downloads.middleware';
+import { DownloadsModule } from './downloads/downloads.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { DownloadsAccessMiddleware } from './downloads/downloads.middleware';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    DownloadsModule,
     MoviesModule,
     SsrfModule,
     ToolsModule,
@@ -27,7 +29,9 @@ import { DownloadsAccessMiddleware } from './downloads/downloads.middleware';
 })
 export class AppModule implements NestModule {
   public configure(consumer: MiddlewareConsumer): void {
-    // make sure that requests to download files are served by the middleware
-    consumer.apply(DownloadsAccessMiddleware).forRoutes(`downloads/*param`);
+    const useDownloadsMiddleware = false;
+    if (useDownloadsMiddleware) {
+      consumer.apply(DownloadsAccessMiddleware).forRoutes(`downloads/*param`);
+    }
   }
 }
